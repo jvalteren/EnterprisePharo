@@ -6,14 +6,15 @@ How to write a book
 
 This book is written in Pillar markup. If you are not familiar with it please read the [Pillar chapter](https://ci.inria.fr/pharo-contribution/job/EnterprisePharoBook/lastSuccessfulBuild/artifact/book-result/PillarChap/Pillar.html).
 
-###Prerequisites
+### Prerequisites
 
-####Install LaTeX
+#### Install LaTeX
 
 The book requires [TeX Live 2015](http://tug.org/texlive/) to generate the PDFs.
 Linux distributions often require to install several packages, please refer to the [SBAbook description](https://github.com/cdlm/sbabook#requirements).
 
-Mac OS X users: download and install [MacTeX](http://tug.org/mactex/)
+##### Mac OS X users
+Download and install [MacTeX](http://tug.org/mactex/)
 (the 2.4Gb `MacTeX.pkg` file), and add its binaries to your system path
 (don't forget to start a new terminal session, for the path changes to take
 effect):
@@ -23,13 +24,19 @@ echo /usr/texbin > TeX
 sudo mv TeX /etc/paths.d
 ```
 
-####Download Pillar
+Alternatively, if you use [Homebrew](https://brew.sh/), you can install MacTex without bundled applications with:
+
+```
+brew cask install mactex-no-gui
+```
+
+#### Download Pillar
 
 Run `./download.sh` to obtain the required Pillar executable. This will also
 download the required Pharo image and VM and install it locally in the book's
 directory.
 
-###Generating the book
+### Generating the book
 
 To generate the individual book chapters, execute `./compile.sh`. This will
 place the rendered chapters in `book-result/`.
@@ -44,7 +51,7 @@ To generate a single chapter (for example, the `Teapot` chapter):
 bash pillarPostExport.sh
 ```
 
-###Adding a chapter
+### Adding a chapter
 
 To add a chapter create a directory for it (named, e.g., `Example`) and put
 there a `.pillar` file (named, e.g., `Example.pillar`) which will contain the
@@ -57,7 +64,7 @@ Add your chapter to:
 * `support/latex/book.tex` in `\graphicspath` as `{Example/}`
 * `EnterprisePharo.pillar` as `${inputFile:Example/Example.pillar}$`
 
-###Caveats
+### Caveats
 
 * You must neither use spaces nor underscores (`_`) in file names.
 
